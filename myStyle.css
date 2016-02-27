@@ -1,7 +1,7 @@
 table, th, tr, td {
 	border:2px solid;
 }
-//#toolbar {
+#toolbar {
     position: fixed;
     width: 100%;
     height: 25px;
@@ -11,7 +11,7 @@ table, th, tr, td {
     background: #ccc; /* some styling */
     border-bottom: 1px solid #333; /* some styling */
 }
- //#main {
+ #main {
 
     background-image: url("nfl-assets/img/gameday-strip-multicol-top-shadow-gradient.png");
     background-repeat: repeat-x;
