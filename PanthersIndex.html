@@ -1,0 +1,285 @@
+<!DOCTYPE html> <!--html 5 is now enabled -->
+    <html lang="en">
+    <head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="political satire, description of content for search engines to parse" content="">
+		<meta name="author" content="Monte Smith">
+		<link rel="icon" href="favicon.ico">
+		
+		<script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.18.min.js"></script>
+<script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js"></script>
+		<title>Panthers Nation</title>
+		<link href="css/bootstrap.css" rel="stylesheet">
+	</head>
+
+<body background="blue.jpg"> <!-- all content appears between the body tags -->
+
+
+
+
+<script type="text/javascript">
+var fbUserId;
+var dynamodb = null; 
+var appId = '514928828668015'; //from facebook
+var roleArn = 'arn:aws:iam::325692768710:role/Dynamo'; //from AWS IAM
+var resultData = null;
+var inputText = null;
+document.getElementById('bb').onclick = function(){
+    var dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });
+    var docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
+    
+    inputText = document.getElementById("fname").value;
+    console.log("fname value ", inputText);
+    var params = {
+        TableName: 'sampleIDTable',
+				    Item: {
+                        itemID: inputText,
+                        f2:'kjhkjhkjhkjhkjhkjhkjhkjhkjh'
+                    }
+				};
+				docClient.put(params, function(err, data){
+                              if (err) console.log(err);
+                              else
+                              {
+                              resultData = data;
+                              console.log(resultData);
+                              
+                              }
+                              });
+    
+}
+window.fbAsyncInit = function() {
+	FB.init({appId : appId});
+	
+	document.getElementById('login').onclick = function(){
+		
+	FB.login(function (response)  
+	{
+		if(response.authResponse)
+		{
+			AWS.config.credentials = new AWS.WebIdentityCredentials({ //WIF
+				RoleArn: roleArn,
+				ProviderId: 'graph.facebook.com',
+				WebIdentityToken: response.authResponse.accessToken
+			});
+</script>
+<!-- Facebook Code -->
+<script>
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '{514928828668015}',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.2' // use version 2.2
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+</script>
+
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+
+<!--- Facebook Login ?? -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '514928828668015',
+      xfbml      : true,
+      version    : 'v2.5'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="jumbotron">
+
+
+    <div class="container">
+        <h1> Panthers Nation <img src="carolina_panthers_banner.jpg" 
+		alt="Carolina Panthers Banner"
+		style="width:650px;height:200px;float: right;"></h1>
+        <p> Welcome Panthers fans to our own fan website </p>
+
+<!-- HTML to other HTML Pages -->
+	<p><a class="btn btn-default" href="News.html" role="button"> 
+		News</a></p>
+	<p><a class="btn btn-default" href="Stats.html" role="button"> 
+		Stats</a></p>
+	<p><a class="btn btn-default" href="Upload.html" role="button"> 
+		Upload</a></p>		
+
+
+<button id="login">Login</button>
+<div id="fb-root"></div>
+
+<button id="bb">Press this!</button>
+</br >
+    Name: <input type="text" id="fname">			
+			<!-- Toolbar disabled 
+				<div id="toolbar">
+				<p>Toolbar</p>
+			End of Toolbar -->
+		
+    </div>
+</div>
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+
+<!-- Facebook Login --> 
+<div class="fb-login-button" data-max-rows="1" data-size="medium" 
+data-show-faces="false" data-auto-logout-link="false"></div>
+
+<center>
+
+<div class="container"> <!--always make containers -->
+<!-- This embeded YouTube Channel isn't working -->
+<script src="http://www.gmodules.com/ig/ifr?url=http://www.google.com/ig/modules/youtube.xml&amp;up_channel=UC6vl4XAyO5mZLczhFC8MgpA&amp;synd=open&amp;w=320&amp;h=390&amp;title=&amp;border=%23ffffff%7C3px%2C1px+solid+%23999999&amp;output=js"></script>
+
+<iframe src="http://widget.websta.me/in/thepanthernation/?s=150&w=1&h=10&b=1&p=5" 
+allowtransparency="true" frameborder="0" scrolling="no" 
+style="border:none;overflow:hidden;width:165px; height: 1650px; float: right;" >
+</iframe> <!-- websta - websta.me -->
+
+<iframe src="http://widget.websta.me/in/panthers/?s=150&w=1&h=10&b=1&p=5" 
+allowtransparency="true" frameborder="0" scrolling="no" 
+style="border:none;overflow:hidden;width:165px; height: 1650px; float: right;" >
+</iframe> <!-- websta - websta.me -->
+
+
+    <div class="row">
+        <div class="col-md-8"> <!-- 8 unit column, 4 to go for that row -->
+            <h2> Hype Videos </h2>
+<div id="main" class="bd">
+ 
+		<div id="main" class="main-wrapper">
+		<!--Panthers Playoff Promo -->
+			<iframe width="800" height="400" 
+				src="http://www.youtube.com/embed/RQ2tvaoNsF0">
+			</iframe>
+
+		</div>
+		<div id="main" class="middle-wrapper">
+		<!-- It's Our Time Hype Video -->
+			<iframe width="800" height="400"
+				src="http://www.youtube.com/embed/CUd1yRJO5Bs">
+			</iframe>
+
+            </div>
+			</div>
+        <div class="col-md-4">
+            <h2> Cam Newton Highlights </h2>
+            <p>  </p>
+			<!-- Cam Man of Steel-->
+			<div id="main" class="middle-wrapper">
+			<iframe width="800" height="400" 
+				src="http://www.youtube.com/embed/qLIrC_9Q8fI">
+			</iframe>
+					<!-- Cam Newton "Forever Carolina" -->
+			<div id="main" class="main-wrapper">
+			<iframe width="800" height="400" 
+				src="http://www.youtube.com/embed/ef_hIMOKhTE">
+			</iframe>
+            </div>
+		
+			</div>
+			
+        </div> <!-- end row -->
+    </div> <!-- end container -->
+	
+	</center>
+	</center>
+	
+
+	<!-- End of JavaScript SDK -->
+</body>
+</html>
