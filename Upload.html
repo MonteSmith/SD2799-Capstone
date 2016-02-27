@@ -9,6 +9,47 @@
 		<title>Panthers Nation</title>
 		<link href="css/bootstrap.css" rel="stylesheet">
 	
+			<!-- CSS in HTML for Dropdown -->
+		<style>
+.dropbtn {
+    background-color: #0088CE;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #0088CE;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+</style>
+	
 	</head>
 	<body background="blue.jpg"> <!-- all content appears between the body tags -->
 <div class="jumbotron">
@@ -20,13 +61,38 @@
 		style="width:650px;height:200px;float: right;"></h1>
         <p> Welcome Panthers fans to our own fan website </p>
 
-<!-- HTML to other HTML Pages -->
-	<p><a class="btn btn-default" href="Index.html" role="button"> 
-		Index</a></p>	
-	<p><a class="btn btn-default" href="News.html" role="button"> 
-		News</a></p>
-	<p><a class="btn btn-default" href="Stats.html" role="button"> 
-		Stats</a></p>
+	<!-- Dropdown -->	
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Menu</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="Index.html">Home</a>
+    <a href="News.html">News</a>
+    <a href="Stats.html">Stats</a>
+  </div>
+</div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
 		
     </div>
 </div>
