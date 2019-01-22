@@ -7,10 +7,11 @@
 		<meta name="author" content="Monte Smith">
 		<link rel="icon" href="favicon.ico">
 		
-		<script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.18.min.js"></script>
-<script id="facebook-jssdk" src="//connect.facebook.net/en_US/all.js"></script>
+		
 		<title>Panthers Nation</title>
 		<link href="css/bootstrap.css" rel="stylesheet">
+		
+		
 		
 		<!-- CSS in HTML for Dropdown -->
 		<style>
@@ -58,164 +59,8 @@
 <body background="blue.jpg"> <!-- all content appears between the body tags -->
 
 
-<script type="text/javascript">
-var fbUserId;
-var dynamodb = null; 
-var appId = '514928828668015'; //from facebook
-var roleArn = 'arn:aws:iam::325692768710:role/Dynamo'; //from AWS IAM
-var resultData = null;
-var inputText = null;
-document.getElementById('bb').onclick = function(){
-    var dynamodb = new AWS.DynamoDB({ region: 'us-west-2' });
-    var docClient = new AWS.DynamoDB.DocumentClient({ service: dynamodb });
-    
-    inputText = document.getElementById("fname").value;
-    console.log("fname value ", inputText);
-    var params = {
-        TableName: 'sampleIDTable',
-				    Item: {
-                        itemID: inputText,
-                        f2:'kjhkjhkjhkjhkjhkjhkjhkjhkjh'
-                    }
-				};
-				docClient.put(params, function(err, data){
-                              if (err) console.log(err);
-                              else
-                              {
-                              resultData = data;
-                              console.log(resultData);
-                              
-                              }
-                              });
-    
-}
-window.fbAsyncInit = function() {
-	FB.init({appId : appId});
-	
-	document.getElementById('login').onclick = function(){
-		
-	FB.login(function (response)  
-	{
-		if(response.authResponse)
-		{
-			AWS.config.credentials = new AWS.WebIdentityCredentials({ //WIF
-				RoleArn: roleArn,
-				ProviderId: 'graph.facebook.com',
-				WebIdentityToken: response.authResponse.accessToken
-			});
-</script>
-<!-- Facebook Code -->
-<script>
-  // This is called with the results from from FB.getLoginStatus().
-  function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-    } else if (response.status === 'not_authorized') {
-      // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
-    } else {
-      // The person is not logged into Facebook, so we're not sure if
-      // they are logged into this app or not.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into Facebook.';
-    }
-  }
 
-  // This function is called when someone finishes with the Login
-  // Button.  See the onlogin handler attached to it in the sample
-  // code below.
-  function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-  }
 
-  window.fbAsyncInit = function() {
-  FB.init({
-    appId      : '{514928828668015}',
-    cookie     : true,  // enable cookies to allow the server to access 
-                        // the session
-    xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.2' // use version 2.2
-  });
-
-  // Now that we've initialized the JavaScript SDK, we call 
-  // FB.getLoginStatus().  This function gets the state of the
-  // person visiting this page and can return one of three states to
-  // the callback you provide.  They can be:
-  //
-  // 1. Logged into your app ('connected')
-  // 2. Logged into Facebook, but not your app ('not_authorized')
-  // 3. Not logged into Facebook and can't tell if they are logged into
-  //    your app or not.
-  //
-  // These three cases are handled in the callback function.
-
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-
-  };
-
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
-</script>
-
-<!--
-  Below we include the Login Button social plugin. This button uses
-  the JavaScript SDK to present a graphical Login button that triggers
-  the FB.login() function when clicked.
--->
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-<div id="status">
-</div>
-
-<!--- Facebook Login -->
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '514928828668015',
-      xfbml      : true,
-      version    : 'v2.5'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
 
 <div class="jumbotron">
 
@@ -243,7 +88,7 @@ function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// Close the dropdown if the user clicks outside of it
+// Close the drop down if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
 
@@ -292,32 +137,47 @@ data-show-faces="false" data-auto-logout-link="false"></div>
 <!-- This embeded YouTube Channel isn't working -->
 <script src="http://www.gmodules.com/ig/ifr?url=http://www.google.com/ig/modules/youtube.xml&amp;up_channel=UC6vl4XAyO5mZLczhFC8MgpA&amp;synd=open&amp;w=320&amp;h=390&amp;title=&amp;border=%23ffffff%7C3px%2C1px+solid+%23999999&amp;output=js"></script>
 
-<iframe src="http://widget.websta.me/in/thepanthernation/?s=150&w=1&h=10&b=1&p=5" 
-allowtransparency="true" frameborder="0" scrolling="no" 
-style="border:none;overflow:hidden;width:165px; height: 1650px; float: right;" >
-</iframe> <!-- websta - websta.me -->
 
-<iframe src="http://widget.websta.me/in/panthers/?s=150&w=1&h=10&b=1&p=5" 
+
+<iframe src="https://web.stagram.com/panthers" 
 allowtransparency="true" frameborder="0" scrolling="no" 
-style="border:none;overflow:hidden;width:165px; height: 1650px; float: right;" >
+style="border:none;overflow:hidden;width:375px; height: 1650px; float: right;" >
 </iframe> <!-- websta - websta.me -->
 
 
     <div class="row">
         <div class="col-md-8"> <!-- 8 unit column, 4 to go for that row -->
-            <h2> Hype Videos </h2>
+		
+		<b><h2> Breif History </h2></b>
+		On October 26, 1993, after six years of hopeful anticipation, the Carolina Panthers were awarded an NFL expansion franchise. Fireworks exploded over downtown Charlotte as jubilant fans gathered to celebrate the news. "This is a dream come true for me and my partners and for the 10 million people in the Carolinas," said Jerry Richardson, the former Baltimore Colts wide receiver turned businessman who led the Carolinas' bid.
+
+ </br></br>"dream" began on July 16, 1987, when Richardson met in Charlotte with a group of interested parties to discuss the feasibility of entering the multi-city competition for two NFL expansion franchises. On December 15, Richardson made it official. The Carolinas' hat was in the ring.
+
+</br></br>After a year of planning, Carolinas' bid was bolstered by the addition of Hall of Famer and former Seattle Seahawks general manager/head coach Mike McCormack to Richardson Sports as a consultant for the expansion effort.
+
+</br></br>One of the first orders of business was to select a stadium site. Although sites in both North and South Carolina were considered, Richardson Sports announced on December 15, 1989, the selection of a site in Uptown Charlotte as the future home of a privately financed stadium that would seat more than 70,000 fans.
+
+</br></br>State-wide support for the Carolinas' franchise bid poured in at an unprecedented rate. United States Senators Jesse Helms of North Carolina and Ernest Hollings of South Carolina lobbied NFL owners on the Carolinas' behalf. Likewise, South Carolina Governor Carroll Campbell and North Carolina Governor Jim Martin officially announced their support through the formation of a blue-ribbon committee of leading citizens in both states. Fans demonstrated their support at sell-out neutral site exhibition games played in Raleigh, N.C. in 1989, Chapel Hill, N.C. in 1990, and Columbia, S.C. in 1991.
+
+</br></br>At the March 18, 1992 NFL owners meeting, the number of expansion hopefuls was reduced from 11 to seven. Carolinas' bid made the cut. A few months later, on May 20, the NFL reduced the list to five communities ¬ including Baltimore, St. Louis, Memphis, Jacksonville and the Carolinas. The finalists' enthusiasm was somewhat dampened, however, when on October 20, 1992, the NFL owners, citing complications surrounding the ongoing NFL labor situation, voted to delay the expansion vote until their fall 1993 meeting. Fortunately, on January 6, 1993, the league and its players reached a seven-year Collective Bargaining Agreement. On March 23, 1993, the expansion race officially resumed. On June 3, Richardson Sports revealed its impressive plan to privately finance a 72,300-seat stadium. Sale of Permanent Seat Licenses, club seats and luxury boxes began on July 1. A remarkable 15,000 pieces of mail from first-day orders were collected. By the end of the first day, all 8,314 club seats were sold out and all 104 luxury suites were reserved and ultimately leased. First-day PSL orders totaled 41,632.
+
+</br></br>Finally, on October 26, 1993, the NFL owners, unanimously selected the Carolinas as the 29th NFL franchise and the first expansion team since 1976.
+
+</br></br>The Panthers played their first-ever game in Canton, Ohio in the annual AFC-NFC Hall of Fame Game. Their opponent in the pre-season classic was the NFL's other expansion franchise, the Jacksonville Jaguars. Although the Panthers came away with a 20-14 victory, it was apparent that both teams had benefited from the NFL's expansion draft and the free-agent market and were ready to compete in the NFL. The Panthers not only were competitive in their inaugural season, but established a new NFL record for most wins by an expansion team by posting an impressive 7-9 record. The team improved dramatically during its second season, winning the NFC Western division with a 12-4 record and advancing to the NFC championship game.
+		
+            <b><h2> Hype Videos </h2></b>
 <div id="main" class="bd">
  
 		<div id="main" class="main-wrapper">
 		<!--Panthers Playoff Promo -->
-			<iframe width="800" height="400" 
+			<iframe width="750" height="400" 
 				src="http://www.youtube.com/embed/RQ2tvaoNsF0">
 			</iframe>
 
 		</div>
 		<div id="main" class="middle-wrapper">
 		<!-- It's Our Time Hype Video -->
-			<iframe width="800" height="400"
+			<iframe width="750" height="400"
 				src="http://www.youtube.com/embed/CUd1yRJO5Bs">
 			</iframe>
 
@@ -328,12 +188,12 @@ style="border:none;overflow:hidden;width:165px; height: 1650px; float: right;" >
             <p>  </p>
 			<!-- Cam Man of Steel-->
 			<div id="main" class="middle-wrapper">
-			<iframe width="800" height="400" 
+			<iframe width="750" height="400" 
 				src="http://www.youtube.com/embed/qLIrC_9Q8fI">
 			</iframe>
 					<!-- Cam Newton "Forever Carolina" -->
 			<div id="main" class="main-wrapper">
-			<iframe width="800" height="400" 
+			<iframe width="750" height="400" 
 				src="http://www.youtube.com/embed/ef_hIMOKhTE">
 			</iframe>
             </div>
@@ -347,6 +207,5 @@ style="border:none;overflow:hidden;width:165px; height: 1650px; float: right;" >
 	</center>
 	
 
-	<!-- End of JavaScript SDK -->
 </body>
 </html>
