@@ -10,85 +10,87 @@
 		<link href="css/bootstrap.css" rel="stylesheet">
 	
 			<!-- CSS in HTML for Dropdown -->
-		<style>
-.dropbtn {
-    background-color: #0088CE;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
+	<style>
+		.dropbtn {
+		background-color: #0088CE;
+		color: white;
+		padding: 16px;
+		font-size: 16px;
+		border: none;
+		cursor: pointer;
+	}
 
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #0088CE;
-}
+		.dropbtn:hover, .dropbtn:focus {
+		background-color: #0088CE;
+	}
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
+		.dropdown {
+		position: relative;
+		display: inline-block;
+	}
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
+		.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f9f9f9;
+		min-width: 160px;
+		overflow: auto;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	}
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
+		.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
 
-.dropdown a:hover {background-color: #f1f1f1}
+		.dropdown a:hover {
+		background-color: #f1f1f1
+	}
 
-.show {display:block;}
-</style>
+		.show {display:block;
+	}
+	</style>
 	
-	</head>
-	<body background="blue.jpg"> <!-- all content appears between the body tags -->
-<div class="jumbotron">
+</head>
 
-
+<body background="blue.jpg"> <!-- all content appears between the body tags -->
+	<div class="jumbotron">
     <div class="container">
-        <h1> Panthers Nation <img src="carolina_panthers_banner.jpg" 
-		alt="Carolina Panthers Banner"
-		style="width:650px;height:200px;float: right;"></h1>
+        
+		<h1> Panthers Nation <img src="carolina_panthers_banner.jpg" 
+			alt="Carolina Panthers Banner"
+			style="width:650px;height:200px;float: right;"></h1>
         <p> Welcome Panthers fans to our own fan website </p>
 	
 	<!-- Dropdown -->	
 <div class="dropdown">
-<button onclick="myFunction()" class="dropbtn">Menu</button>
-  <div id="myDropdown" class="dropdown-content">
+	<button onclick="myFunction()" class="dropbtn">Menu</button>
+<div id="myDropdown" class="dropdown-content">
     <a href="PanthersIndex.html">Home</a>
     <a href="Stats.html">Stats</a>
     <a href="Upload.html">Upload</a>
-  </div>
+</div>
 </div>
 
 <script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
+		function myFunction() {
+		document.getElementById("myDropdown").classList.toggle("show");
+	}
 
 // Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
+	window.onclick = function(event) {
+		if (!event.target.matches('.dropbtn')) {
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		var i;
+		for (i = 0; i < dropdowns.length; i++) {
+		var openDropdown = dropdowns[i];
+		if (openDropdown.classList.contains('show')) {
+			openDropdown.classList.remove('show');
+		}
     }
   }
 }
@@ -97,14 +99,13 @@ window.onclick = function(event) {
     </div>
 </div>
 	</head>
-	<body>
-<a class="twitter-timeline" href="https://twitter.com/Panthers" data-widget-id="695333813816131584">Tweets by @Panthers</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-	
-<div name=iframe style="width:100%; height:635px; border:2px solid grey; overflow:hidden">
-  <iframe src="http://www.youtube.com/UC6vl4XAyO5mZLczhFC8MgpA" style=width:100%; height:700px; margin-top: -65px" scrolling=true>
-     If you can see this, your browser doesn't support iframes. Click <a href=http://mychannel.url>here to
-     see my YouTube channel.</a>
-</div>
-	</body>
+<body>
+		<center>
+	<a class="twitter-timeline" data-width="1800" data-height="1800" href="https://twitter.com/Panthers">Tweets by @Panthers</a> 
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+			if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";
+			fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</center>
+</body>
+
 </html>

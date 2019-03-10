@@ -1,6 +1,6 @@
 <!DOCTYPE html> <!--html 5 is now enabled -->
-    <html lang="en">
-    <head>
+<html lang="en">
+   <head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="political satire, description of content for search engines to parse" content="">
@@ -9,94 +9,89 @@
 		
 		
 		<title>Panthers Nation</title>
-		<link href="css/bootstrap.css" rel="stylesheet">
+			<link href="css/bootstrap.css" rel="stylesheet">
 		
 		
 		
-		<!-- CSS in HTML for Dropdown -->
-		<style>
-.dropbtn {
-    background-color: #0088CE;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
+<!-- CSS in HTML for Dropdown -->
+	<style>
+		.dropbtn {
+			background-color: #0088CE;
+			color: white;
+			padding: 16px;
+			font-size: 16px;
+			border: none;
+			cursor: pointer;
+		}
 
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #0088CE;
-}
+		.dropbtn:hover, .dropbtn:focus {
+			background-color: #0088CE;
+		}
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
+		.dropdown {
+			position: relative;
+			display: inline-block;
+		}
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f9f9f9;
+			min-width: 160px;
+			overflow: auto;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		}
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
+		.dropdown-content a {
+			color: black;
+			padding: 12px 16px;
+			text-decoration: none;
+			display: block;
+		}
 
-.dropdown a:hover {background-color: #f1f1f1}
-
-.show {display:block;}
-</style>
+		.dropdown a:hover {background-color: #f1f1f1}
+			.show {display:block;}				
+	</style>
 		
 	</head>
 
 <body background="blue.jpg"> <!-- all content appears between the body tags -->
 
 
-
-
-
+<!-- Container element -->
+<div class="parallax"></div>
 <div class="jumbotron">
-
-
     <div class="container">
-        <h1> Panthers Nation <img src="carolina_panthers_banner.jpg" 
-		alt="Carolina Panthers Banner"
-		style="width:650px;height:200px;float: right;"></h1>
-        <p> Welcome Panthers fans to our own fan website </p>
+	
+<h1> <font size="14" color="black">Panthers Nation</font> <img src="carolina_panthers_banner.jpg" 
+	alt="Carolina Panthers Banner"
+	style="width:650px;height:200px;float: right;"></h1>
+<p> <font size="3" color="black">Welcome Panthers fans to our own fan website</font> </p>
 
-	<!-- Dropdown -->	
-<div class="dropdown">
-<button onclick="myFunction()" class="dropbtn">Menu</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="News.html">News</a>
-    <a href="Stats.html">Stats</a>
-    <a href="Upload.html">Upload</a>
-  </div>
-</div>
+<!-- Dropdown -->	
+	<div class="dropdown">
+		<button onclick="myFunction()" class="dropbtn">Menu</button>
+	<div id="myDropdown" class="dropdown-content">
+			<a href="News.html">News</a>
+			<a href="Stats.html">Stats</a>
+			<a href="Upload.html">Upload</a>
+		</div>
+	</div>
 
 <script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
+/* When the user clicks on the button, toggle between hiding and showing the dropdown content */
+	function myFunction() {
+		document.getElementById("myDropdown").classList.toggle("show");
+	}
 
 // Close the drop down if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
+	window.onclick = function(event) {
+		if (!event.target.matches('.dropbtn')) {
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		var i;
+			for (i = 0; i < dropdowns.length; i++) {
+		var openDropdown = dropdowns[i];
+			if (openDropdown.classList.contains('show')) {
         openDropdown.classList.remove('show');
       }
     }
@@ -115,92 +110,81 @@ window.onclick = function(event) {
 </br >
     Name: <input type="text" id="fname">
 	
- End of Disabled -->	
-
-		
+ End of Disabled -->		
     </div>
 </div>
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
+	<div
+		class="fb-like"
+		data-share="true"
+		data-width="450"
+		data-show-faces="true">
+	</div>
 
 <!-- Facebook Login --> 
-<div class="fb-login-button" data-max-rows="1" data-size="medium" 
-data-show-faces="false" data-auto-logout-link="false"></div>
+	<div class="fb-login-button" data-max-rows="1" data-size="medium" 
+		data-show-faces="false" data-auto-logout-link="false">
+	</div>
 
 <center>
 
-<div class="container"> <!--always make containers -->
-<!-- This embeded YouTube Channel isn't working -->
-<script src="http://www.gmodules.com/ig/ifr?url=http://www.google.com/ig/modules/youtube.xml&amp;up_channel=UC6vl4XAyO5mZLczhFC8MgpA&amp;synd=open&amp;w=320&amp;h=390&amp;title=&amp;border=%23ffffff%7C3px%2C1px+solid+%23999999&amp;output=js"></script>
-
-
-
-<iframe src="https://web.stagram.com/panthers" 
-allowtransparency="true" frameborder="0" scrolling="no" 
-style="border:none;overflow:hidden;width:375px; height: 1650px; float: right;" >
-</iframe> <!-- websta - websta.me -->
-
+	<div class="container">
+		<iframe src="https://web.stagram.com/panthers" 
+			allowtransparency="true" frameborder="0" scrolling="no" 
+			style="border:none;overflow:hidden;width:375px; height: 1650px; float: right;" >
+		</iframe> <!-- Instagram Feed - websta.me -->
 
     <div class="row">
         <div class="col-md-8"> <!-- 8 unit column, 4 to go for that row -->
 		
-		<b><h2> Breif History </h2></b>
-		On October 26, 1993, after six years of hopeful anticipation, the Carolina Panthers were awarded an NFL expansion franchise. Fireworks exploded over downtown Charlotte as jubilant fans gathered to celebrate the news. "This is a dream come true for me and my partners and for the 10 million people in the Carolinas," said Jerry Richardson, the former Baltimore Colts wide receiver turned businessman who led the Carolinas' bid.
-
- </br></br>"dream" began on July 16, 1987, when Richardson met in Charlotte with a group of interested parties to discuss the feasibility of entering the multi-city competition for two NFL expansion franchises. On December 15, Richardson made it official. The Carolinas' hat was in the ring.
-
-</br></br>After a year of planning, Carolinas' bid was bolstered by the addition of Hall of Famer and former Seattle Seahawks general manager/head coach Mike McCormack to Richardson Sports as a consultant for the expansion effort.
-
-</br></br>One of the first orders of business was to select a stadium site. Although sites in both North and South Carolina were considered, Richardson Sports announced on December 15, 1989, the selection of a site in Uptown Charlotte as the future home of a privately financed stadium that would seat more than 70,000 fans.
-
-</br></br>State-wide support for the Carolinas' franchise bid poured in at an unprecedented rate. United States Senators Jesse Helms of North Carolina and Ernest Hollings of South Carolina lobbied NFL owners on the Carolinas' behalf. Likewise, South Carolina Governor Carroll Campbell and North Carolina Governor Jim Martin officially announced their support through the formation of a blue-ribbon committee of leading citizens in both states. Fans demonstrated their support at sell-out neutral site exhibition games played in Raleigh, N.C. in 1989, Chapel Hill, N.C. in 1990, and Columbia, S.C. in 1991.
-
-</br></br>At the March 18, 1992 NFL owners meeting, the number of expansion hopefuls was reduced from 11 to seven. Carolinas' bid made the cut. A few months later, on May 20, the NFL reduced the list to five communities ¬ including Baltimore, St. Louis, Memphis, Jacksonville and the Carolinas. The finalists' enthusiasm was somewhat dampened, however, when on October 20, 1992, the NFL owners, citing complications surrounding the ongoing NFL labor situation, voted to delay the expansion vote until their fall 1993 meeting. Fortunately, on January 6, 1993, the league and its players reached a seven-year Collective Bargaining Agreement. On March 23, 1993, the expansion race officially resumed. On June 3, Richardson Sports revealed its impressive plan to privately finance a 72,300-seat stadium. Sale of Permanent Seat Licenses, club seats and luxury boxes began on July 1. A remarkable 15,000 pieces of mail from first-day orders were collected. By the end of the first day, all 8,314 club seats were sold out and all 104 luxury suites were reserved and ultimately leased. First-day PSL orders totaled 41,632.
-
-</br></br>Finally, on October 26, 1993, the NFL owners, unanimously selected the Carolinas as the 29th NFL franchise and the first expansion team since 1976.
-
-</br></br>The Panthers played their first-ever game in Canton, Ohio in the annual AFC-NFC Hall of Fame Game. Their opponent in the pre-season classic was the NFL's other expansion franchise, the Jacksonville Jaguars. Although the Panthers came away with a 20-14 victory, it was apparent that both teams had benefited from the NFL's expansion draft and the free-agent market and were ready to compete in the NFL. The Panthers not only were competitive in their inaugural season, but established a new NFL record for most wins by an expansion team by posting an impressive 7-9 record. The team improved dramatically during its second season, winning the NFC Western division with a 12-4 record and advancing to the NFC championship game.
-		
-            <b><h2> Hype Videos </h2></b>
-<div id="main" class="bd">
- 
+<b><h2><font size="6" color="black"><u> Brief History</u></font> </h2></b>
+	<font size="2" color="black">On October 26, 1993, after six years of hopeful anticipation, the Carolina Panthers were awarded an NFL expansion franchise. Fireworks exploded over downtown Charlotte as jubilant fans gathered to celebrate the news. "This is a dream come true for me and my partners and for the 10 million people in the Carolinas," said Jerry Richardson, the former Baltimore Colts wide receiver turned businessman who led the Carolinas' bid.
+</br></br>
+	"dream" began on July 16, 1987, when Richardson met in Charlotte with a group of interested parties to discuss the feasibility of entering the multi-city competition for two NFL expansion franchises. On December 15, Richardson made it official. The Carolinas' hat was in the ring.
+</br></br>
+	After a year of planning, Carolinas' bid was bolstered by the addition of Hall of Famer and former Seattle Seahawks general manager/head coach Mike McCormack to Richardson Sports as a consultant for the expansion effort.
+</br></br>
+	One of the first orders of business was to select a stadium site. Although sites in both North and South Carolina were considered, Richardson Sports announced on December 15, 1989, the selection of a site in Uptown Charlotte as the future home of a privately financed stadium that would seat more than 70,000 fans.
+</br></br>
+	State-wide support for the Carolinas' franchise bid poured in at an unprecedented rate. United States Senators Jesse Helms of North Carolina and Ernest Hollings of South Carolina lobbied NFL owners on the Carolinas' behalf. Likewise, South Carolina Governor Carroll Campbell and North Carolina Governor Jim Martin officially announced their support through the formation of a blue-ribbon committee of leading citizens in both states. Fans demonstrated their support at sell-out neutral site exhibition games played in Raleigh, N.C. in 1989, Chapel Hill, N.C. in 1990, and Columbia, S.C. in 1991.
+</br></br>
+	At the March 18, 1992 NFL owners meeting, the number of expansion hopefuls was reduced from 11 to seven. Carolinas' bid made the cut. A few months later, on May 20, the NFL reduced the list to five communities ¬ including Baltimore, St. Louis, Memphis, Jacksonville and the Carolinas. The finalists' enthusiasm was somewhat dampened, however, when on October 20, 1992, the NFL owners, citing complications surrounding the ongoing NFL labor situation, voted to delay the expansion vote until their fall 1993 meeting. Fortunately, on January 6, 1993, the league and its players reached a seven-year Collective Bargaining Agreement. On March 23, 1993, the expansion race officially resumed. On June 3, Richardson Sports revealed its impressive plan to privately finance a 72,300-seat stadium. Sale of Permanent Seat Licenses, club seats and luxury boxes began on July 1. A remarkable 15,000 pieces of mail from first-day orders were collected. By the end of the first day, all 8,314 club seats were sold out and all 104 luxury suites were reserved and ultimately leased. First-day PSL orders totaled 41,632.
+</br></br>
+	Finally, on October 26, 1993, the NFL owners, unanimously selected the Carolinas as the 29th NFL franchise and the first expansion team since 1976.
+</br></br>
+	The Panthers played their first-ever game in Canton, Ohio in the annual AFC-NFC Hall of Fame Game. Their opponent in the pre-season classic was the NFL's other expansion franchise, the Jacksonville Jaguars. Although the Panthers came away with a 20-14 victory, it was apparent that both teams had benefited from the NFL's expansion draft and the free-agent market and were ready to compete in the NFL. The Panthers not only were competitive in their inaugural season, but established a new NFL record for most wins by an expansion team by posting an impressive 7-9 record. The team improved dramatically during its second season, winning the NFC Western division with a 12-4 record and advancing to the NFC championship game.
+	</font>	
+<b><h2> <font size="6" color="black"><u>Showcased Videos</u></font> </h2></b>
+	<div id="main" class="bd">
+<!-- Ready or Not-->
+		<div id="main" class="second-wrapper">
+			<iframe width="750" height="400" 
+				src="https://www.youtube.com/embed/7i_C3PhbCuA">				
+			</iframe>		
+		</div>
+</br>		
 		<div id="main" class="main-wrapper">
-		<!--Panthers Playoff Promo -->
+<!--Panthers Playoff Promo -->
 			<iframe width="750" height="400" 
 				src="http://www.youtube.com/embed/RQ2tvaoNsF0">
 			</iframe>
-
 		</div>
-		<div id="main" class="middle-wrapper">
-		<!-- It's Our Time Hype Video -->
+</br>
+		<div id="main" class="second-wrapper">
+<!-- It's Our Time Hype Video -->
 			<iframe width="750" height="400"
-				src="http://www.youtube.com/embed/CUd1yRJO5Bs">
+				src="http://www.youtube.com/embed/kuFLMUqnl-E">
 			</iframe>
-
-            </div>
-			</div>
-        <div class="col-md-4">
-            <h2> Cam Newton Highlights </h2>
-            <p>  </p>
-			<!-- Cam Man of Steel-->
-			<div id="main" class="middle-wrapper">
-			<iframe width="750" height="400" 
-				src="http://www.youtube.com/embed/qLIrC_9Q8fI">
-			</iframe>
-					<!-- Cam Newton "Forever Carolina" -->
-			<div id="main" class="main-wrapper">
+        </div>
+</br>		
+<!-- Cam Newton "Forever Carolina" -->
+		<div id="main" class="main-wrapper">
 			<iframe width="750" height="400" 
 				src="http://www.youtube.com/embed/ef_hIMOKhTE">
 			</iframe>
-            </div>
-		
-			</div>
+        </div>
+	</div>
 			
-        </div> <!-- end row -->
+        <div class="col-md-4"> <!-- Inactive--> </div> <!-- end row -->
     </div> <!-- end container -->
 	
 	</center>
